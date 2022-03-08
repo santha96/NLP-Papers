@@ -1,0 +1,20 @@
+Transliteration refers to converting one script to another script.Transliteration is different from romanization .Romanization refers to the process of representing non-Latin scripts into Roman (Latin) Alphabet.
+
+Paper : Does Transliteration Help Multilingual Language Modeling?
+Author : Ibraheem Muhammad Moosa, Mahmud Elahi Akhter, Ashfia Binte Habib
+
+Points to note :
+
+* Transliteration effectively improves the performance of low resource languages without negatively affecting high resource languages.
+* There are established standards that can be used for transliteration : Greek (ISO 843), Cyrillic (ISO 9), Indic scripts (ISO 15919), and Thai (ISO 11940) to the Latin script.
+* In this paper,  pretrained two ALBERT models (one with original text and one with transliterated text) to empirically measure the effect of transliteration on MLLMs. 
+* evaluated four downstream tasks with indicGLUE benchmark
+* Used Mann whitney U test to compare two models.
+* Lexical overlap improves multilingual representation
+* Major challenges in leveraging the transfer between high resource and low resource language is script barrier.
+* Transliterating and phoneme based technique is used to solve this issue.
+* Both transliteration and grapheme to phoneme (g2p) conversion removes script barrier and improves crosslingual morphological inflection .
+* They showed that transliterating Uyghur, Buryat, Erzya, Sorani, Meadow Mari, and Mingrelian to Latin script and finetuning mBERT on the respective corpus with masked language modeling objective improved their downstream POS performance significantly. 
+* Reason for improvement is ,in multi-script model, the same word written in six different scripts gets mapped to six different tokens, these get mapped to the same token in the transliteration model. Thus we expect the tokenizer to more efficiently tokenize a given text in the case of the transliteration model.
+
+
