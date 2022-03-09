@@ -1,0 +1,28 @@
+Paper : Efficient Inference for Multilingual Neural Machine Translation.
+Author : Alexandre Berard, Dain Lee, Stéphane Clinchant, Kweonwoo Jung, Vassilina Nikoulina
+
+Problem statement : To improve the inference time for multilingual neural machine translation.
+Solution : shallow decoder + vocabulary filtering improves inference time 2X.
+
+To improve inference time in Bilingual translation model:
+
+* Using lighter decoder architectures like shallow decoder (Eg : 12-2 transformer architecture ,RNN decoder) improves inference time.
+* It also indicates that some speed gain could be obtained by reducing vocabulary size (which impacts both beam search and softmax).
+* Combination of shallow decoder and per language vocab filtering improves inference time 2to 3X
+* separate language-specific shallow decoders, which trade memory for higher BLEU performance, with comparable speed as the single-decoder approach.
+* Half of the time is dedicated to decoder.inference spends 30% of more time spent in decoder than in encoder.
+* Its possible to improve inference time by pruning attention heads which improves 50X
+* hybrid transformer is a good choice in production
+* softmax computation is linear with vocabulary size.vocab hashing/vocab shortlist helps to improve inference time.
+
+To improve inference time in multilingual translation model:
+
+*12-2 transformer architecture improves inference time but if the model fails to converge, initialize the 12-2 model with a pretrained 6-6 model’s parameters, by duplicating its
+encoder layers and taking its bottom 2 decoder layers.
+*Solution for vocab reduction in multilingual settings:
+a solution that combines the best of both worlds: have a large shared BPE vocabulary at train time, 
+which we decompose into smaller language-specific vocabularies at test time, based on per-language token frequencies. 
+More precisely, we train a shared BPE model of size 64k, then for each language:
+*shared encoder and language specific decoder improves inference time.
+
+
