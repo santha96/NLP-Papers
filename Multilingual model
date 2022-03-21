@@ -1,0 +1,22 @@
+Paper  : Massively Multilingual Neural Machine Translation
+Author : Roee Aharoni, Melvin Johnson, Orhan Firat
+
+About : Implemented massively multilingual model which supports 102 languages.
+
+Important takeaways :
+
+* Multilingual model surpasses bilingual model performance.
+* It enables zero translation (i.e) it translates language pair which was never seen in the dataset.
+* It has several advantages but still its unclear how many languages one can include in the model.
+* Training multiple languages together results in transfer learning and performance increases if we add more languages and 
+the model can learn which information to share.However ,adding more languages of different families are not sub-optimal because of the different
+typological language family
+* Many to many model outperforms all other models (bilingual,many to one) while translating to english .Many to one model overfits the english side 
+of the corpus as it is multi-way parallel so the english sentences are overlapping across different languages so its easier for model to memorize while 
+on the other hand,many to many models have more than one target which acts as a regularizer and avoid overfitting.
+* Many to many model performs poorer than one to many model ,this shows that increasing the number of source languages also causes additional degradation 
+in a many-to-many model.This degradation may be due to the English-centric setting: since most of the translation directions the model is trained on 
+are into English, this leaves less capacity for the other target languages.
+* Bilingual settings outperform only in high resource languages but in low resource settings,multilingual model surpasses the bilingual setting bcz the 
+baselines have very few training examples to outperform the many-to-one models, while in the higher resource setting they have
+access to more training data
