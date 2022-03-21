@@ -17,4 +17,9 @@ Points to note :
 * They showed that transliterating Uyghur, Buryat, Erzya, Sorani, Meadow Mari, and Mingrelian to Latin script and finetuning mBERT on the respective corpus with masked language modeling objective improved their downstream POS performance significantly. 
 * Reason for improvement is ,in multi-script model, the same word written in six different scripts gets mapped to six different tokens, these get mapped to the same token in the transliteration model. Thus we expect the tokenizer to more efficiently tokenize a given text in the case of the transliteration model.
 
+Libraries available : 
+1) https://anoopkunchukuttan.github.io/indic_nlp_library/
+2) https://github.com/dmort27/epitran
+3) https://github.com/3aransia
+
 
